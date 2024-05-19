@@ -1,0 +1,37 @@
+fourier:
+  fft:
+    # Whether to emulate FFTshifts in the FFT using field multiplications.
+    # This provides a 3x speedup, in exchange for a 10x reduction in accuracy.
+    emulate_fftshifts: true
+
+    # The backend to use for the FFTs.
+    method: ['mkl', 'scipy', 'fftw', 'numpy']
+
+  mft:
+    # Whether to precompute the matrices used in the MFT.
+    # This provides a 20-30% speedup, in exchange for higher memory usage.
+    precompute_matrices: true
+
+    # Whether to reserve memory for intermediate results.
+    # This provides a 5-10% speedup, in exchange for higher memory usage.
+    allocate_intermediate: true
+
+  nft:
+    # Whether to precompute the matrices used in the NFT.
+    # Enabling this is not recommended, as it requires vast amounts of memory.
+    precompute_matrices: false
+
+plotting:
+  # The path to the ffmpeg binary. If this is empty, ffmpeg should be available from PATH
+  # for some functions to work.
+  ffmpeg_path:
+
+  # The default colormap for imshow_psf().
+  psf_colormap: 'inferno'
+
+  # The default colormap for imshow_pupil_phase().
+  pupil_phase_colormap: 'RdBu'
+
+core:
+  # Whether to use new-style or old-style fields.
+  use_new_style_fields: false
