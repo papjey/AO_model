@@ -354,7 +354,7 @@ class Wavefront(object):
         '''The total power in this wavefront.
         '''
         return np.sum(self.power)
-
+ 
     @total_power.setter
     def total_power(self, p):
         self.electric_field *= np.sqrt(p / self.total_power)

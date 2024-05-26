@@ -227,7 +227,7 @@ class NoisyDetector(Detector):
         # Adding the generated dark current.
         self.accumulated_charge += self.dark_current_rate * dt * weight
 
-    def read_out(self):
+    def read_out(self, reset=True):
         '''Reads out the detector.
 
         The read out operation of the detector. This means that, if applicable, first photon noise
@@ -253,10 +253,10 @@ class NoisyDetector(Detector):
         output_field += np.random.normal(loc=0, scale=self.read_noise, size=output_field.size)
 
         # Reset detector
-        self.accumulated_charge = 0
+        if reset:
+            self.accumulated_charge = 0
 
         return output_field
-
 class FrameCorrector(object):
     def correct(self, img):
         return img

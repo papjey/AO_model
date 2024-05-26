@@ -13,3 +13,9 @@ tags
 .ipynb_checkpoints/
 _version.py
 .DS_Store
+*.png
+*.mp4
+Model/atmosphere.pkl
+Model/atmosphere_modes.pkl
+*.png
+*.png
